@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Portfolio-MS" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/fa62c117c7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Michael Seifert</title>
+  </head>
+
+  <body class="light" id="top">
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <div class="layout">
+      <!-- LEFT / STICKY SIDEBAR -->
+      <aside class="sidebar" aria-label="Sidebar">
+        <div class="sidebar__intro">
+          <h1 class="sidebar__name">
+            <a class="link" href="#top">Michael Seifert</a>
+          </h1>
+          <p class="sidebar__role">IT – System Engineer</p>
+          <p class="sidebar__tagline">
+            Systems • Home-labs • Coding • Security 
+          </p>
+        </div>
+
+        <nav class="sidebar__nav" aria-label="Section navigation">
+          <ul class="sidebar__nav-list">
+            <li><a class="sidebar__nav-link" href="#about">About</a></li>
+            <li><a class="sidebar__nav-link" href="#projects">Projects</a></li>
+            <li><a class="sidebar__nav-link" href="#skills">Skills</a></li>
+            <li><a class="sidebar__nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="sidebar__footer">
+          <div class="sidebar__socials" aria-label="Social links">
+            <a
+              href="https://example.com"
+              class="btn btn--outline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Resume
+            </a>
+
+            <a
+              href="https://github.com/M1sch"
+              aria-label="github"
+              class="link link--icon"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i aria-hidden="true" class="fab fa-github"></i>
+            </a>
+
+            <a
+              href="https://linkedin.com/in/M1sch"
+              aria-label="linkedin"
+              class="link link--icon"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i aria-hidden="true" class="fab fa-linkedin"></i>
+            </a>
+          </div>
+
+          <button type="button" aria-label="toggle theme" class="btn btn--icon">
+            <i aria-hidden="true" id="btn-theme" class="fas fa-moon"></i>
+          </button>
+        </div>
+      </aside>
+
+      <!-- RIGHT / SCROLLING CONTENT -->
+      <main id="content" class="content">
+        <!-- About -->
+        <section id="about" class="section">
+          <h2 class="section__title">About</h2>
+          <p class="about__desc">
+            I am an mostly autodidact tech enthusiast and a curious systems engineer.
+            At work I tinker with servers, clients and networks — at home with microcontrollers, home-labs and code.
+            I'm learning to turn that curiosity into professional cybersecurity skills.
+            <br /><br />
+            Just <b>coding</b> for fun and <b>to get better every day</b>.
+            I'm practical, curious and enjoy diving into technical topics.
+            <br /><br />
+            I'm actively transitioning from general system engineering towards detection engineering and threat hunting
+            — Learning CyberSecurity hands-on through home-labs and private projects.
+          </p>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="section projects">
+          <h2 class="section__title">Projects</h2>
+
+          <div class="projects__grid">
+            <div class="project">
+              <h3>NFC Vinyl JukeBox</h3>
+              <p class="project__description">
+                Ipsum accusamus ea excepturi aliquid eligendi amet...
+              </p>
+              <ul class="project__stack">
+                <li class="project__stack-item">Python</li>
+                <li class="project__stack-item">TypeScript</li>
+                <li class="project__stack-item">React</li>
+              </ul>
+              <a
+                href="https://github.com"
+                aria-label="source code"
+                class="link link--icon"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i aria-hidden="true" class="fab fa-github"></i>
+              </a>
+              <a
+                href="https://example.com"
+                aria-label="live preview"
+                class="link link--icon"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i aria-hidden="true" class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+
+            <div class="project">
+              <h3>Sentry_Box</h3>
+              <p class="project__description">
+                A comprehensive Wi-Fi probe request analyzer...
+              </p>
+              <ul class="project__stack">
+                <li class="project__stack-item">Linux</li>
+                <li class="project__stack-item">Kismet</li>
+                <li class="project__stack-item">WiGLE API</li>
+              </ul>
+              <a
+                href="https://github.com"
+                aria-label="source code"
+                class="link link--icon"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i aria-hidden="true" class="fab fa-github"></i>
+              </a>
+            </div>
+
+            <div class="project">
+              <h3>USB-Guard</h3>
+              <p class="project__description">
+                Ipsum accusamus ea excepturi aliquid eligendi amet...
+              </p>
+              <ul class="project__stack">
+                <li class="project__stack-item">Windows</li>
+                <li class="project__stack-item">PowerShell</li>
+                <li class="project__stack-item">Logging</li>
+              </ul>
+              <a
+                href="https://github.com"
+                aria-label="source code"
+                class="link link--icon"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i aria-hidden="true" class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Skills (single ID now) -->
+        <section class="section skills" id="skills">
+          <h2 class="section__title">Skills</h2>
+
+          <h3 class="skills__subtitle">Administration & Troubleshooting</h3>
+          <ul class="skills__list">
+            <li class="skills__list-item btn btn--plain">Server administration</li>
+            <li class="skills__list-item btn btn--plain">Bash</li>
+            <li class="skills__list-item btn btn--plain">Networking</li>
+            <li class="skills__list-item btn btn--plain">Identity & Cloud</li>
+            <li class="skills__list-item btn btn--plain">Logs & Monitoring</li>
+            <li class="skills__list-item btn btn--plain">Virtualization</li>
+            <li class="skills__list-item btn btn--plain">Firewalls & Proxies</li>
+          </ul>
+
+          <h3 class="skills__subtitle">Coding</h3>
+          <ul class="skills__list">
+            <li class="skills__list-item btn btn--plain">Python</li>
+            <li class="skills__list-item btn btn--plain">C/C++</li>
+            <li class="skills__list-item btn btn--plain">C#</li>
+            <li class="skills__list-item btn btn--plain">HTML/CSS</li>
+            <li class="skills__list-item btn btn--plain">Git</li>
+            <li class="skills__list-item btn btn--plain">SQL</li>
+          </ul>
+        </section>
+
+        <!-- Contact -->
+        <section class="section contact center" id="contact">
+          <h2 class="section__title">Contact</h2>
+          <p class="contact__description">
+            If you want to chat about systems, security or a potential collaboration, feel free to reach out
+          </p>
+          <br />
+          <a href="mailto:Mi.Seifert@protonmail.com">
+            <span class="btn btn--outline">Email me</span>
+          </a>
+        </section>
+
+        <footer class="footer">
+          <a href="https://github.com/M1sch/my-portfolio" class="link footer__link" target="_blank" rel="noopener noreferrer">
+            Created By Michael Seifert
+          </a>
+        </footer>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
