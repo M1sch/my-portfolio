@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
     <meta name="description" content="Portfolio-MS" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,18 +14,11 @@
     <script
       src="https://kit.fontawesome.com/fa62c117c7.js"
       crossorigin="anonymous"
-      function toggleContent() {
-        const content = document.getElementById('extra-info');
-        const button = document.querySelector('button');
-        const isHidden = content.hidden;
-        content.hidden = !isHidden;
-        button.setAttribute('aria-expanded', isHidden);
     ></script>
     <link rel="stylesheet" href="/styles/styles.css" />
-    <link rel="icon" href="/icon.png" type="image/x-icon">   
-    
+    <link rel="icon" href="/icon.png" type="image/x-icon" />
+
     <title>Michael Seifert</title>
-    
   </head>
 
   <body class="light" id="top">
@@ -38,12 +32,24 @@
             <a class="link" href="#top">Michael Seifert</a>
           </h1>
           <p class="sidebar__role">IT – System Engineer</p>
-          <p class="sidebar__tagline">
-            Home-labs • Coding • Security 
-          </p>
+          <p class="sidebar__tagline">Home-labs • Coding • Security</p>
         </div>
 
-        <nav class="sidebar__nav" aria-label="Section navigation">
+        <button
+          type="button"
+          class="sidebar__nav-toggle btn btn--outline"
+          aria-controls="sidebar-nav"
+          aria-expanded="false"
+        >
+          <span class="sidebar__nav-toggle-label">menu</span>
+          <i aria-hidden="true" class="fas fa-bars"></i>
+        </button>
+
+        <nav
+          id="sidebar-nav"
+          class="sidebar__nav"
+          aria-label="Section navigation"
+        >
           <ul class="sidebar__nav-list">
             <li><a class="sidebar__nav-link" href="#about">About</a></li>
             <li><a class="sidebar__nav-link" href="#projects">Projects</a></li>
@@ -77,15 +83,18 @@
         <section id="about" class="section">
           <h2 class="section__title">About</h2>
           <p class="about__desc">
-            I am an mostly autodidact tech enthusiast and a curious systems engineer.
-            At work I tinker with servers, clients and networks — at home with old boards and my soldering iron, microcontrollers, test- & home-labs and code.
-            I'm learning to turn that curiosity into professional cybersecurity skills.
+            I am an mostly autodidact tech enthusiast and a curious systems
+            engineer. At work I tinker with servers, clients and networks — at
+            home with old boards and my soldering iron, microcontrollers, test-
+            & home-labs and code. I'm learning to turn that curiosity into
+            professional cybersecurity skills.
             <br /><br />
-            Just <b>coding</b> for fun and <b>to get better every day</b>.
-            I'm practical, curious and enjoy diving into technical topics.
+            Just <b>coding</b> for fun and <b>to get better every day</b>. I'm
+            practical, curious and enjoy diving into technical topics.
             <br /><br />
-            I'm actively transitioning from general system engineering towards detection engineering and threat hunting
-            — Learning CyberSecurity hands-on through home-labs and private projects.
+            I'm actively transitioning from general system engineering towards
+            detection engineering and threat hunting — Learning CyberSecurity
+            hands-on through home-labs and private projects.
           </p>
         </section>
 
@@ -97,7 +106,8 @@
             <div class="project" id="project2">
               <h3>GoblinWatch</h3>
               <p class="project__description">
-                A stationary Wireless-Watchguard and WIDS (Wireless Intrussion Detection System) inspired by CYT
+                A stationary Wireless-Watchguard and WIDS (Wireless Intrussion
+                Detection System) inspired by CYT
               </p>
               <ul class="project__stack">
                 <li class="project__stack-item">Linux</li>
@@ -118,7 +128,8 @@
             <div class="project" id="project1">
               <h3>NFC-Vinyl JukeBox</h3>
               <p class="project__description">
-                NFC-jukebox using Pico 2 to play songs from 3D-printed vinyls with NFC-tags...
+                NFC-jukebox using Pico 2 to play songs from 3D-printed vinyls
+                with NFC-tags...
               </p>
               <ul class="project__stack">
                 <li class="project__stack-item">Python</li>
@@ -138,7 +149,8 @@
             <div class="project" id="project3">
               <h3>DuckFence</h3>
               <p class="project__description">
-                Tool to monitor, control and manage USB device connections, preventing Rubber Ducky attacks...
+                Tool to monitor, control and manage USB device connections,
+                preventing Rubber Ducky attacks...
               </p>
               <ul class="project__stack">
                 <li class="project__stack-item">Windows</li>
@@ -160,7 +172,7 @@
           </div>
         </section>
 
-        <!-- Skills (single ID now) -->
+        <!-- Skills -->
         <section class="section skills" id="skills">
           <h2 class="section__title">Skills</h2>
 
@@ -190,7 +202,8 @@
         <section class="section contact center" id="contact">
           <h2 class="section__title">Contact</h2>
           <p class="contact__description">
-            If you want to chat about systems, security or a potential collaboration, feel free to reach out
+            If you want to chat about systems, security or a potential
+            collaboration, feel free to reach out
           </p>
           <br />
           <a href="mailto:Mi.Seifert@protonmail.com">
@@ -199,12 +212,21 @@
         </section>
 
         <footer class="footer">
-          <a href="https://github.com/M1sch/my-portfolio" class="link footer__link" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/M1sch/my-portfolio"
+            class="link footer__link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Created By Michael Seifert
           </a>
         </footer>
       </main>
     </div>
+
+    <button type="button" class="scroll-top" aria-label="Scroll to top">
+      <i aria-hidden="true" class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="/scripts/script.js"></script>
   </body>

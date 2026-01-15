@@ -1,64 +1,130 @@
-const body = document.body
+const body = document.body;
 
-const btnTheme = document.querySelector('.fa-moon')
-const btnHamburger = document.querySelector('.fa-bars')
+const themeToggleButton = document.querySelector(
+  '.btn[aria-label="toggle theme"]'
+);
+const themeIcon = document.getElementById("btn-theme");
 
-const addThemeClass = (bodyClass, btnClass) => {
-  body.classList.add(bodyClass)
-  btnTheme.classList.add(btnClass)
-}
+const navToggleButton = document.querySelector(".sidebar__nav-toggle");
+const sidebarNav = document.getElementById("sidebar-nav");
 
-const getBodyTheme = localStorage.getItem('portfolio-theme')
-const getBtnTheme = localStorage.getItem('portfolio-btn-theme')
+const scrollTopButton = document.querySelector(".scroll-top");
 
-addThemeClass(getBodyTheme, getBtnTheme)
+const THEME_KEY = "portfolio-theme";
 
-const isDark = () => body.classList.contains('dark')
+const applyTheme = (theme) => {
+  body.classList.remove("light", "dark");
+  body.classList.add(theme);
 
-const setTheme = (bodyClass, btnClass) => {
+  if (themeIcon) {
+    themeIcon.classList.remove("fa-moon", "fa-sun");
+    themeIcon.classList.add(theme === "dark" ? "fa-sun" : "fa-moon");
+  }
+};
 
-	body.classList.remove(localStorage.getItem('portfolio-theme'))
-	btnTheme.classList.remove(localStorage.getItem('portfolio-btn-theme'))
+const getInitialTheme = () => {
+  const stored = localStorage.getItem(THEME_KEY);
+  return stored === "dark" ? "dark" : "light";
+};
 
-  addThemeClass(bodyClass, btnClass)
+applyTheme(getInitialTheme());
 
-	localStorage.setItem('portfolio-theme', bodyClass)
-	localStorage.setItem('portfolio-btn-theme', btnClass)
-}
+themeToggleButton?.addEventListener("click", () => {
+  const nextTheme = body.classList.contains("dark") ? "light" : "dark";
+  applyTheme(nextTheme);
+  localStorage.setItem(THEME_KEY, nextTheme);
+});
 
-const toggleTheme = () =>
-	isDark() ? setTheme('light', 'fa-moon') : setTheme('dark', 'fa-sun')
+const setNavOpen = (open) => {
+  if (!sidebarNav || !navToggleButton) return;
 
-btnTheme.addEventListener('click', toggleTheme)
+  sidebarNav.classList.toggle("is-open", open);
+  navToggleButton.setAttribute("aria-expanded", String(open));
+};
 
-const displayList = () => {
-	const navUl = document.querySelector('.nav__list')
+const initNavState = () => {
+  const isMobile = window.matchMedia("(max-width: 900px)").matches;
+  setNavOpen(!isMobile);
+};
 
-	if (btnHamburger.classList.contains('fa-bars')) {
-		btnHamburger.classList.remove('fa-bars')
-		btnHamburger.classList.add('fa-times')
-		navUl.classList.add('display-nav-list')
-	} else {
-		btnHamburger.classList.remove('fa-times')
-		btnHamburger.classList.add('fa-bars')
-		navUl.classList.remove('display-nav-list')
-	}
-}
+initNavState();
+window.addEventListener("resize", initNavState);
 
-btnHamburger.addEventListener('click', displayList)
+navToggleButton?.addEventListener("click", () => {
+  const isOpen = sidebarNav?.classList.contains("is-open") ?? false;
+  setNavOpen(!isOpen);
+});
 
-const scrollUp = () => {
-	const btnScrollTop = document.querySelector('.scroll-top')
+const navLinks = Array.from(
+  document.querySelectorAll('.sidebar__nav-link[href^="#"]')
+);
+const sectionMap = new Map();
 
-	if (
-		body.scrollTop > 500 ||
-		document.documentElement.scrollTop > 500
-	) {
-		btnScrollTop.style.display = 'block'
-	} else {
-		btnScrollTop.style.display = 'none'
-	}
-}
+navLinks.forEach((link) => {
+  const id = link.getAttribute("href")?.slice(1);
+  if (!id) return;
 
-document.addEventListener('scroll', scrollUp)
+  const section = document.getElementById(id);
+  if (section) sectionMap.set(section, link);
+});
 
+const setActiveLink = (activeLink) => {
+  navLinks.forEach((link) => link.classList.remove("is-active"));
+  if (activeLink) activeLink.classList.add("is-active");
+};
+
+document.querySelectorAll(".sidebar__nav-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    setActiveLink(link);
+
+    if (window.matchMedia("(max-width: 900px)").matches) {
+      setNavOpen(false);
+    }
+  });
+});
+
+const sections = Array.from(sectionMap.keys()).sort(
+  (a, b) => a.offsetTop - b.offsetTop
+);
+
+const updateActiveFromScroll = () => {
+  if (sections.length === 0) return;
+
+  const marker = window.scrollY + window.innerHeight * 0.35;
+
+  let current = sections[0];
+  for (const section of sections) {
+    if (section.offsetTop <= marker) current = section;
+  }
+
+  setActiveLink(sectionMap.get(current));
+};
+
+let activeRafId = null;
+const requestActiveUpdate = () => {
+  if (activeRafId !== null) return;
+
+  activeRafId = window.requestAnimationFrame(() => {
+    activeRafId = null;
+    updateActiveFromScroll();
+  });
+};
+
+window.addEventListener("scroll", requestActiveUpdate, { passive: true });
+window.addEventListener("resize", requestActiveUpdate);
+requestActiveUpdate();
+
+const updateScrollTopVisibility = () => {
+  if (!scrollTopButton) return;
+  const shouldShow = window.scrollY > 500;
+  scrollTopButton.style.display = shouldShow ? "inline-flex" : "none";
+};
+
+document.addEventListener("scroll", updateScrollTopVisibility, {
+  passive: true,
+});
+updateScrollTopVisibility();
+
+scrollTopButton?.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
