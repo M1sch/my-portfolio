@@ -90,7 +90,17 @@ const sections = Array.from(sectionMap.keys()).sort(
 const updateActiveFromScroll = () => {
   if (sections.length === 0) return;
 
-  const marker = window.scrollY + window.innerHeight * 0.35;
+  const doc = document.documentElement;
+  const scrollBottom = window.scrollY + window.innerHeight;
+  const docHeight = doc.scrollHeight;
+
+  // Ensure the last section becomes active even if it's too short to cross the marker.
+  if (scrollBottom >= docHeight - 2) {
+    setActiveLink(sectionMap.get(sections[sections.length - 1]));
+    return;
+  }
+
+  const marker = window.scrollY + window.innerHeight * 0.45;
 
   let current = sections[0];
   for (const section of sections) {
