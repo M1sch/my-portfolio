@@ -13,6 +13,12 @@
     <script
       src="https://kit.fontawesome.com/fa62c117c7.js"
       crossorigin="anonymous"
+      function toggleContent() {
+        const content = document.getElementById('extra-info');
+        const button = document.querySelector('button');
+        const isHidden = content.hidden;
+        content.hidden = !isHidden;
+        button.setAttribute('aria-expanded', isHidden);
     ></script>
     <link rel="stylesheet" href="../styles/styles.css" />
     <title>Michael Seifert</title>
@@ -30,7 +36,7 @@
           </h1>
           <p class="sidebar__role">IT – System Engineer</p>
           <p class="sidebar__tagline">
-            Systems • Home-labs • Coding • Security 
+            Home-labs • Coding • Security 
           </p>
         </div>
 
@@ -69,7 +75,7 @@
           <h2 class="section__title">About</h2>
           <p class="about__desc">
             I am an mostly autodidact tech enthusiast and a curious systems engineer.
-            At work I tinker with servers, clients and networks — at home with microcontrollers, home-labs and code.
+            At work I tinker with servers, clients and networks — at home with old boards and my soldering iron, microcontrollers, test- & home-labs and code.
             I'm learning to turn that curiosity into professional cybersecurity skills.
             <br /><br />
             Just <b>coding</b> for fun and <b>to get better every day</b>.
@@ -88,8 +94,7 @@
             <div class="project" id="project2">
               <h3>GoblinWatch</h3>
               <p class="project__description">
-                A stationary WIDS <br />
-                inspired by CYT
+                A stationary Wireless-Watchguard and WIDS (Wireless Intrussion Detection System) inspired by CYT
               </p>
               <ul class="project__stack">
                 <li class="project__stack-item">Linux</li>
@@ -155,6 +160,13 @@
         <!-- Skills (single ID now) -->
         <section class="section skills" id="skills">
           <h2 class="section__title">Skills</h2>
+
+          <button onclick="toggleContent()" aria-expanded="false" aria-controls="extra-info">
+            > Additional Information
+          </button>
+          <div id="extra-info" hidden>
+            This is the hidden content.
+          </div>
 
           <h3 class="skills__subtitle">Administration & Troubleshooting</h3>
           <ul class="skills__list">
