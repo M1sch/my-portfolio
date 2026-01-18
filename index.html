@@ -22,7 +22,7 @@
   </head>
 
   <body class="light" id="top">
-    <a class="skip-link" href="#content">Skip to content</a>
+    <a class="skip-link" href="#content" data-i18n="ui.skip">Skip to content</a>
 
     <div class="layout">
       <!-- LEFT / STICKY SIDEBAR -->
@@ -31,8 +31,8 @@
           <h1 class="sidebar__name">
             <a class="link" href="#top">Michael Seifert</a>
           </h1>
-          <p class="sidebar__role">IT – System Engineer</p>
-          <p class="sidebar__tagline">Home-labs • Coding • Security</p>
+          <p class="sidebar__role" data-i18n="sidebar.role">IT – System Engineer</p>
+          <p class="sidebar__tagline" data-i18n="sidebar.tagline">Home-labs • Coding • Security</p>
         </div>
 
         <button
@@ -41,7 +41,7 @@
           aria-controls="sidebar-nav"
           aria-expanded="false"
         >
-          <span class="sidebar__nav-toggle-label">menu</span>
+          <span class="sidebar__nav-toggle-label" data-i18n="ui.menu">menu</span>
           <i aria-hidden="true" class="fas fa-bars"></i>
         </button>
 
@@ -51,10 +51,18 @@
           aria-label="Section navigation"
         >
           <ul class="sidebar__nav-list">
-            <li><a class="sidebar__nav-link" href="#about">About</a></li>
-            <li><a class="sidebar__nav-link" href="#projects">Projects</a></li>
-            <li><a class="sidebar__nav-link" href="#skills">Skills</a></li>
-            <li><a class="sidebar__nav-link" href="#contact">Contact</a></li>
+            <li>
+              <a class="sidebar__nav-link" href="#about" data-i18n="nav.about">About</a>
+            </li>
+            <li>
+              <a class="sidebar__nav-link" href="#projects" data-i18n="nav.projects">Projects</a>
+            </li>
+            <li>
+              <a class="sidebar__nav-link" href="#skills" data-i18n="nav.skills">Skills</a>
+            </li>
+            <li>
+              <a class="sidebar__nav-link" href="#contact" data-i18n="nav.contact">Contact</a>
+            </li>
           </ul>
         </nav>
 
@@ -74,6 +82,26 @@
           <button type="button" aria-label="toggle theme" class="btn btn--icon">
             <i aria-hidden="true" id="btn-theme" class="fas fa-moon"></i>
           </button>
+
+          <!-- Language switch -->
+          <div class="lang-switch" role="group" aria-label="Language">
+            <button
+              type="button"
+              class="lang-switch__btn"
+              data-lang="en"
+              aria-pressed="true"
+            >
+              EN
+            </button>
+            <button
+              type="button"
+              class="lang-switch__btn"
+              data-lang="de"
+              aria-pressed="false"
+            >
+              DE
+            </button>
+          </div>
         </div>
       </aside>
 
@@ -81,8 +109,8 @@
       <main id="content" class="content">
         <!-- About -->
         <section id="about" class="section">
-          <h2 class="section__title">About</h2>
-          <p class="about__desc">
+          <h2 class="section__title" data-i18n="section.about">About</h2>
+          <p class="about__desc" data-i18n="about.desc" data-i18n-html>
             I am an mostly autodidact tech enthusiast and a curious systems
             engineer. At work I tinker with servers, clients and networks — at
             home with old boards and my soldering iron, microcontrollers, test-
@@ -100,12 +128,12 @@
 
         <!-- Projects -->
         <section id="projects" class="section projects">
-          <h2 class="section__title">Projects</h2>
+          <h2 class="section__title" data-i18n="section.projects">Projects</h2>
 
           <div class="projects__grid">
             <div class="project" id="project2">
               <h3>GoblinWatch</h3>
-              <p class="project__description">
+              <p class="project__description" data-i18n="projects.goblinwatch.desc">
                 A stationary Wireless-Watchguard and WIDS (Wireless Intrussion
                 Detection System) inspired by CYT
               </p>
@@ -127,7 +155,7 @@
 
             <div class="project" id="project1">
               <h3>NFC-Vinyl JukeBox</h3>
-              <p class="project__description">
+              <p class="project__description" data-i18n="projects.nfc.desc">
                 NFC-jukebox using Pico 2 to play songs from 3D-printed vinyls
                 with NFC-tags...
               </p>
@@ -148,7 +176,7 @@
 
             <div class="project" id="project3">
               <h3>DuckFence</h3>
-              <p class="project__description">
+              <p class="project__description" data-i18n="projects.duckfence.desc">
                 Tool to monitor, control and manage USB device connections,
                 preventing Rubber Ducky attacks...
               </p>
@@ -172,54 +200,55 @@
           </div>
         </section>
 
+        <!-- Skills -->
+        <section class="section skills" id="skills">
+          <h2 class="section__title" data-i18n="section.skills">Skills</h2>
 
-<!-- Skills -->
-<section class="section skills" id="skills">
-  <h2 class="section__title">Skills</h2>
+          <h3 class="skills__subtitle" data-i18n="skills.admin">
+            Administration & Troubleshooting
+          </h3>
+          <ul class="skills__list">
+            <li class="skills__list-item btn btn--plain">
+              IT Support (1st/2nd Level, remote & on-site)
+            </li>
+            <li class="skills__list-item btn btn--plain">RMM & Automation</li>
+            <li class="skills__list-item btn btn--plain">Windows Server & Active Directory</li>
+            <li class="skills__list-item btn btn--plain">Linux administration</li>
+            <li class="skills__list-item btn btn--plain">Microsoft 365 & Exchange Online</li>
+            <li class="skills__list-item btn btn--plain">Entra ID / Azure AD</li>
+            <li class="skills__list-item btn btn--plain">Networking (subnetting, diagnostics)</li>
+            <li class="skills__list-item btn btn--plain">Incident & escalation management</li>
+            <li class="skills__list-item btn btn--plain">Firewall rule configuration</li>
+            <li class="skills__list-item btn btn--plain">Logs & Monitoring (Event Log, Sysmon)</li>
+            <li class="skills__list-item btn btn--plain">SIEM basics (Microsoft Sentinel, KQL)</li>
+            <li class="skills__list-item btn btn--plain">Virtualization</li>
+            <li class="skills__list-item btn btn--plain">Firewalls & Proxies</li>
+            <li class="skills__list-item btn btn--plain">VoIP systems (Swyx, 3CX, Starface)</li>
+          </ul>
 
-  <h3 class="skills__subtitle">Administration & Troubleshooting</h3>
-  <ul class="skills__list">
-    <li class="skills__list-item btn btn--plain">IT Support (1st/2nd Level, remote & on-site)</li>
-    <li class="skills__list-item btn btn--plain">RMM & Automation</li>
-    <li class="skills__list-item btn btn--plain">Windows Server & Active Directory</li>
-    <li class="skills__list-item btn btn--plain">Linux administration</li>
-    <li class="skills__list-item btn btn--plain">Microsoft 365 & Exchange Online</li>
-    <li class="skills__list-item btn btn--plain">Entra ID / Azure AD </li>
-    <li class="skills__list-item btn btn--plain">Networking (subnetting, diagnostics)</li>
-    <li class="skills__list-item btn btn--plain">Incident & escalation management</li>
-    <li class="skills__list-item btn btn--plain">Firewall rule configuration</li>
-    <li class="skills__list-item btn btn--plain">Logs & Monitoring (Event Log, Sysmon)</li>
-    <li class="skills__list-item btn btn--plain">SIEM basics (Microsoft Sentinel, KQL)</li>
-    <li class="skills__list-item btn btn--plain">Virtualization</li>
-    <li class="skills__list-item btn btn--plain">Firewalls & Proxies</li>
-    <li class="skills__list-item btn btn--plain">VoIP systems (Swyx, 3CX, Starface)</li>
-  </ul>
-
-  <h3 class="skills__subtitle">Coding</h3>
-  <ul class="skills__list">
-    <li class="skills__list-item btn btn--plain">Python</li>
-    <li class="skills__list-item btn btn--plain">C/C++</li>
-    <li class="skills__list-item btn btn--plain">C#</li>
-    <li class="skills__list-item btn btn--plain">HTML/CSS</li>
-    <li class="skills__list-item btn btn--plain">Git</li>
-    <li class="skills__list-item btn btn--plain">SQL</li>
-    <li class="skills__list-item btn btn--plain">Bash scripting</li>
-    <li class="skills__list-item btn btn--plain">Batch scripting</li>
-  </ul>
-</section>
-```
-
+          <h3 class="skills__subtitle" data-i18n="skills.coding">Coding</h3>
+          <ul class="skills__list">
+            <li class="skills__list-item btn btn--plain">Python</li>
+            <li class="skills__list-item btn btn--plain">C/C++</li>
+            <li class="skills__list-item btn btn--plain">C#</li>
+            <li class="skills__list-item btn btn--plain">HTML/CSS</li>
+            <li class="skills__list-item btn btn--plain">Git</li>
+            <li class="skills__list-item btn btn--plain">SQL</li>
+            <li class="skills__list-item btn btn--plain">Bash scripting</li>
+            <li class="skills__list-item btn btn--plain">Batch scripting</li>
+          </ul>
+        </section>
 
         <!-- Contact -->
         <section class="section contact center" id="contact">
-          <h2 class="section__title">Contact</h2>
-          <p class="contact__description">
+          <h2 class="section__title" data-i18n="section.contact">Contact</h2>
+          <p class="contact__description" data-i18n="contact.desc">
             If you want to chat about systems, security or a potential
             collaboration, feel free to reach out
           </p>
           <br />
           <a href="mailto:Mi.Seifert@protonmail.com">
-            <span class="btn btn--outline">Email me</span>
+            <span class="btn btn--outline" data-i18n="ui.emailMe">Email me</span>
           </a>
         </section>
 
@@ -229,6 +258,7 @@
             class="link footer__link"
             target="_blank"
             rel="noopener noreferrer"
+            data-i18n="footer.createdBy"
           >
             Created By Michael Seifert
           </a>

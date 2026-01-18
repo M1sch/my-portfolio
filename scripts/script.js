@@ -35,6 +35,162 @@
   });
 
   // ---------------------------------------------------------------------------
+  // Language switch (persisted + data-i18n)
+  // ---------------------------------------------------------------------------
+  const LANG_KEY = "portfolio-lang";
+
+  const TRANSLATIONS = {
+    en: {
+      ui: {
+        skip: "Skip to content",
+        menu: "menu",
+        emailMe: "Email me",
+      },
+      nav: {
+        about: "About",
+        projects: "Projects",
+        skills: "Skills",
+        contact: "Contact",
+      },
+      section: {
+        about: "About",
+        projects: "Projects",
+        skills: "Skills",
+        contact: "Contact",
+      },
+      sidebar: {
+        role: "IT – System Engineer",
+        tagline: "Home-labs • Coding • Security",
+      },
+      about: {
+        // Using HTML because your paragraph uses <br> and <b>
+        desc:
+          "I am an mostly autodidact tech enthusiast and a curious systems engineer. " +
+          "At work I tinker with servers, clients and networks — at home with old boards " +
+          "and my soldering iron, microcontrollers, test- & home-labs and code. " +
+          "I'm learning to turn that curiosity into professional cybersecurity skills." +
+          "<br /><br />" +
+          "Just <b>coding</b> for fun and <b>to get better every day</b>. " +
+          "I'm practical, curious and enjoy diving into technical topics." +
+          "<br /><br />" +
+          "I'm actively transitioning from general system engineering towards detection engineering " +
+          "and threat hunting — Learning CyberSecurity hands-on through home-labs and private projects.",
+      },
+      skills: {
+        admin: "Administration & Troubleshooting",
+        coding: "Coding",
+      },
+      contact: {
+        desc:
+          "If you want to chat about systems, security or a potential collaboration, feel free to reach out",
+      },
+      footer: {
+        createdBy: "Created By Michael Seifert",
+      },
+    },
+    de: {
+      ui: {
+        skip: "Zum Inhalt springen",
+        menu: "menü",
+        emailMe: "E-Mail",
+      },
+      nav: {
+        about: "Über mich",
+        projects: "Projekte",
+        skills: "Skills",
+        contact: "Kontakt",
+      },
+      section: {
+        about: "Über mich",
+        projects: "Projekte",
+        skills: "Skills",
+        contact: "Kontakt",
+      },
+      sidebar: {
+        role: "IT – System Engineer",
+        tagline: "Home-Labs • Coding • Security",
+      },
+      about: {
+        desc:
+          "Ich bin ein größtenteils autodidaktischer Technik-Enthusiast und neugieriger System Engineer. " +
+          "Im Job bastle ich an Servern, Clients und Netzwerken — zuhause an alten Boards und mit dem Lötkolben, " +
+          "Mikrocontrollern, Test- & Home-Labs und Code. Ich lerne, diese Neugier in professionelle Cybersecurity-Skills zu verwandeln." +
+          "<br /><br />" +
+          "Ich <b>code</b> aus Spaß und um <b>jeden Tag besser zu werden</b>. " +
+          "Ich bin praktisch, neugierig und tauche gern tief in technische Themen ein." +
+          "<br /><br />" +
+          "Aktiv wechsle ich von allgemeinem System Engineering Richtung Detection Engineering und Threat Hunting - " +
+          "CyberSecurity hands-on durch Home-Labs und private Projekte.",
+      },
+      skills: {
+        admin: "Administration & Fehlerbehebung",
+        coding: "Coding",
+      },
+      contact: {
+        desc:
+          "Wenn du über Systeme, Security oder eine mögliche Zusammenarbeit sprechen willst, melde dich gern",
+      },
+      footer: {
+        createdBy: "Erstellt von Michael Seifert",
+      },
+    },
+  };
+
+  const getInitialLanguage = () => {
+    const stored = localStorage.getItem(LANG_KEY);
+    if (stored === "de" || stored === "en") return stored;
+
+    // navigator.language is usually like "de-DE", "en-US", ...
+    const browserLang = (navigator.language || "en").toLowerCase();
+    return browserLang.startsWith("de") ? "de" : "en";
+  };
+
+  const setActiveLangButtons = (lang) => {
+    document.querySelectorAll(".lang-switch__btn[data-lang]").forEach((btn) => {
+      const isActive = btn.getAttribute("data-lang") === lang;
+      btn.classList.toggle("is-active", isActive);
+      btn.setAttribute("aria-pressed", String(isActive));
+    });
+  };
+
+  const applyTranslations = (lang) => {
+    const dict = TRANSLATIONS[lang] || TRANSLATIONS.en;
+
+    // Set <html lang="..."> for accessibility / correct language handling
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (!key) return;
+
+      const value = key.split(".").reduce((acc, part) => acc?.[part], dict);
+      if (typeof value !== "string") return;
+
+      if (el.hasAttribute("data-i18n-html")) {
+        el.innerHTML = value;
+      } else {
+        el.textContent = value;
+      }
+    });
+
+    setActiveLangButtons(lang);
+  };
+
+  let currentLang = getInitialLanguage();
+  applyTranslations(currentLang);
+
+  document.querySelectorAll(".lang-switch__btn[data-lang]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const nextLang = btn.getAttribute("data-lang");
+      if (!nextLang || nextLang === currentLang) return;
+
+      currentLang = nextLang;
+      localStorage.setItem(LANG_KEY, currentLang);
+      applyTranslations(currentLang);
+    });
+  });
+
+  // ---------------------------------------------------------------------------
   // Sidebar navigation (mobile open/close + close on link click)
   // ---------------------------------------------------------------------------
   const navToggleButton = document.querySelector(".sidebar__nav-toggle");
@@ -56,7 +212,6 @@
 
   syncNavToViewport();
 
-  // Prefer MediaQueryList change events; fall back to resize if needed.
   if (typeof mobileMql.addEventListener === "function") {
     mobileMql.addEventListener("change", syncNavToViewport);
   } else {
@@ -68,7 +223,6 @@
     setNavOpen(!isOpen);
   });
 
-  // Keep anchor scrolling as native behavior; only close the menu on mobile.
   document
     .querySelectorAll('.sidebar__nav-link[href^="#"]')
     .forEach((link) => {

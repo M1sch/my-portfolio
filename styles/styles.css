@@ -348,6 +348,34 @@ section[id] {
 }
 
 /*===================
+  Language switch
+===================*/
+
+.lang-switch {
+  display: inline-flex;
+  border: 2px solid var(--clr-primary);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.lang-switch__btn {
+  min-width: 48px;
+  min-height: 48px;
+  padding: 0 0.9rem;
+  border: 0;
+  background: transparent;
+  color: var(--clr-fg);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lang-switch__btn.is-active {
+  background: var(--clr-primary);
+  color: var(--clr-bg);
+}
+
+
+/*===================
   About
 ===================*/
 
