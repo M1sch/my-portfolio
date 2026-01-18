@@ -74,7 +74,7 @@
           "I'm practical, curious and enjoy diving into technical topics." +
           "<br /><br />" +
           "I'm actively transitioning from general system engineering towards detection engineering " +
-          "and threat hunting — Learning CyberSecurity hands-on through home-labs and private projects.",
+          "and threat hunting — Learning CyberSecurity hands-on through home-labs, private projects and online courses.",
       },
       skills: {
         admin: "Administration & Troubleshooting",
@@ -91,7 +91,7 @@
     de: {
       ui: {
         skip: "Zum Inhalt springen",
-        menu: "menü",
+        menu: "Menü",
         emailMe: "E-Mail",
       },
       nav: {
@@ -112,15 +112,16 @@
       },
       about: {
         desc:
-          "Ich bin ein größtenteils autodidaktischer Technik-Enthusiast und neugieriger System Engineer. " +
-          "Im Job bastle ich an Servern, Clients und Netzwerken — zuhause an alten Boards und mit dem Lötkolben, " +
-          "Mikrocontrollern, Test- & Home-Labs und Code. Ich lerne, diese Neugier in professionelle Cybersecurity-Skills zu verwandeln." +
+          "Ich bin ein überwiegend autodidaktischer Technik-Enthusiast und ein neugieriger System Engineer. " +
+          "Beruflich arbeite ich an Servern, Clients und Netzwerken – privat schraube ich an alten Boards, " +
+          "mit dem Lötkolben, an Mikrocontrollern, in Test- & Home-Labs und natürlich an Code. " +
+          "Gerade baue ich diese Neugier Schritt für Schritt zu professionellen Cybersecurity-Skills aus." +
           "<br /><br />" +
-          "Ich <b>code</b> aus Spaß und um <b>jeden Tag besser zu werden</b>. " +
-          "Ich bin praktisch, neugierig und tauche gern tief in technische Themen ein." +
+          "Ich <b>code</b> aus Spaß – und um <b>jeden Tag besser zu werden</b>. " +
+          "Ich bin praktisch veranlagt, neugierig und tauche gern tief in technische Themen ein." +
           "<br /><br />" +
-          "Aktiv wechsle ich von allgemeinem System Engineering Richtung Detection Engineering und Threat Hunting - " +
-          "CyberSecurity hands-on durch Home-Labs und private Projekte.",
+          "Aktuell bewege ich mich vom klassischen System Engineering Richtung Detection Engineering und Threat Hunting – " +
+          "CyberSecurity lerne ich hands-on durch Home-Labs, private Projekte und Online-Kurse.",
       },
       skills: {
         admin: "Administration & Fehlerbehebung",
@@ -128,7 +129,7 @@
       },
       contact: {
         desc:
-          "Wenn du über Systeme, Security oder eine mögliche Zusammenarbeit sprechen willst, melde dich gern",
+          "Wenn Sie über Systeme, Security oder eine mögliche Zusammenarbeit sprechen möchten, schreiben Sie mir gerne",
       },
       footer: {
         createdBy: "Erstellt von Michael Seifert",

@@ -321,6 +321,7 @@ section[id] {
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
+  margin-top: 1rem;
 }
 
 .sidebar__socials {
@@ -345,6 +346,7 @@ section[id] {
 
 .fa-github {
   margin-top: 5px;
+  font-size: larger;
 }
 
 /*===================
