@@ -59,7 +59,7 @@
         contact: "Contact",
       },
       sidebar: {
-        role: "IT – System Engineer",
+        role: "IT - System Engineer",
         tagline: "Home-labs • Coding • Security",
       },
       about: {
@@ -107,20 +107,20 @@
         contact: "Kontakt",
       },
       sidebar: {
-        role: "IT – System Engineer",
+        role: "IT - System Engineer",
         tagline: "Home-Labs • Coding • Security",
       },
       about: {
         desc:
           "Ich bin ein überwiegend autodidaktischer Technik-Enthusiast und ein neugieriger System Engineer. " +
-          "Beruflich arbeite ich an Servern, Clients und Netzwerken – privat schraube ich an alten Boards, " +
+          "Beruflich arbeite ich an Servern, Clients und Netzwerken - privat schraube ich an alten Boards, " +
           "mit dem Lötkolben, an Mikrocontrollern, in Test- & Home-Labs und natürlich an Code. " +
           "Gerade baue ich diese Neugier Schritt für Schritt zu professionellen Cybersecurity-Skills aus." +
           "<br /><br />" +
-          "Ich <b>code</b> aus Spaß – und um <b>jeden Tag besser zu werden</b>. " +
+          "Ich <b>code</b> aus Spaß - und um <b>jeden Tag besser zu werden</b>. " +
           "Ich bin praktisch veranlagt, neugierig und tauche gern tief in technische Themen ein." +
           "<br /><br />" +
-          "Aktuell bewege ich mich vom klassischen System Engineering Richtung Detection Engineering und Threat Hunting – " +
+          "Aktuell bewege ich mich vom klassischen System Engineering Richtung Detection Engineering und Threat Hunting - " +
           "CyberSecurity lerne ich hands-on durch Home-Labs, private Projekte und Online-Kurse.",
       },
       skills: {
