@@ -345,9 +345,34 @@ section[id] {
   text-transform: uppercase;
 }
 
-.fa-github {
-  margin-top: 5px;
-  font-size: larger;
+/*===================
+  Icons (SVG-based)
+===================*/
+
+.icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask: var(--icon) no-repeat center / contain;
+  mask: var(--icon) no-repeat center / contain;
+}
+
+.icon--github {
+  --icon: url("/assets/icons/github.svg");
+  margin-top: 6px;
+}
+
+.icon--moon {
+  --icon: url("/assets/icons/moon.svg");
+}
+
+.icon--sun {
+  --icon: url("/assets/icons/sun.svg");
+}
+
+.icon--arrow-up {
+  --icon: url("/assets/icons/arrow-up.svg");
 }
 
 /*===================

@@ -6,19 +6,19 @@
   // ---------------------------------------------------------------------------
   const THEME_KEY = "portfolio-theme";
 
-  const themeToggleButton = document.querySelector(
-    '.btn[aria-label="toggle theme"]'
-  );
-  const themeIcon = document.getElementById("btn-theme");
+  const themeToggleButton = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon");
+
+  const updateThemeIcon = (isDark) => {
+    if (!themeIcon) return;
+    themeIcon.classList.toggle("icon--moon", !isDark);
+    themeIcon.classList.toggle("icon--sun", isDark);
+  };
 
   const applyTheme = (theme) => {
     body.classList.remove("light", "dark");
     body.classList.add(theme);
-
-    if (themeIcon) {
-      themeIcon.classList.remove("fa-moon", "fa-sun");
-      themeIcon.classList.add(theme === "dark" ? "fa-sun" : "fa-moon");
-    }
+    updateThemeIcon(theme === "dark");
   };
 
   const getInitialTheme = () => {
