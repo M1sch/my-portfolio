@@ -16,7 +16,7 @@ Personal portfolio website for me.
 
 ## Credits
 - Google Fonts: Poppins
-- Font Awesome for icons
+- icons.getbootstrap.com for icons
 
 ## License
 See `LICENSE`.
