@@ -140,6 +140,20 @@ section[id] {
   width: 100%;
 }
 
+.link--icon {
+  padding-bottom: 0;
+}
+
+.link--icon::before {
+  display: none;
+}
+
+/* optional: keep a hover cue */
+.link--icon:hover,
+.link--icon:focus-visible {
+  color: var(--clr-primary);
+}
+
 /* Make icon/toggle targets finger-friendly (48dp recommended) */
 .link--icon,
 .btn--icon {
@@ -152,7 +166,7 @@ section[id] {
 
 .link--icon {
   color: var(--clr-fg);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .btn {
@@ -213,7 +227,7 @@ section[id] {
 
 .btn--icon {
   padding: 0;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--clr-fg);
 
 }
@@ -331,6 +345,8 @@ section[id] {
   gap: 0.5rem;
 }
 
+
+
 .content {
   padding: 4rem 0;
 }
@@ -350,8 +366,8 @@ section[id] {
 ===================*/
 
 .icon {
-  width: 1.15rem;
-  height: 1.15rem;
+  width: 1em;
+  height: 1em;
   display: inline-block;
   background-color: currentColor;
   -webkit-mask: var(--icon) no-repeat center / contain;
@@ -360,7 +376,6 @@ section[id] {
 
 .icon--github {
   --icon: url("/assets/icons/github.svg");
-  margin-top: 6px;
 }
 
 .icon--moon {
